@@ -2,7 +2,7 @@
 
 # Notes
 
-This repository is forked from DSO's Repo One and adapted to Redhat UBI8 image with minor improvements such as health check and backward compatibility to RHEL user mapping 27.
+This repository is forked from [DSO's Repo One](https://repo1.dso.mil/dsop/opensource/mariadb/mariadb104) and adapted to Redhat UBI8 image with minor improvements such as health check and backward compatibility to RHEL user mapping 27.
 
 # Version
 
