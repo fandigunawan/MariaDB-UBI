@@ -31,7 +31,8 @@ RUN groupadd -g 27 -r mysql && \
 	mkdir -p /var/lib/mysql /var/run/mysqld && \
 	chown -R mysql:mysql /var/lib/mysql /var/run/mysqld && \
     mkdir /docker-entrypoint-initdb.d && \
-    chown mysql:mysql /docker-entrypoint-initdb.d
+    chown mysql:mysql /docker-entrypoint-initdb.d && \
+    find / -perm /6000 -type f -exec chmod a-s {} \; || true 
 
 COPY config/my.cnf /etc/my.cnf
 COPY config/server.cnf /etc/my.cnf.d/server.cnf
