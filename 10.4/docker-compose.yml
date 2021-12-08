@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3.0'
 services:
   mariadb:
     image: mariadb-ubi:10.4.22
@@ -13,14 +13,20 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     env_file: .env
     restart: always
+    security_opt:
+      - no-new-privileges:true
     deploy:
       resources:
         limits:
-          cpus: '0.9'
+          cpus: '0.90'
           memory: 96GB
         reservations:
-          memory: 20GB
+          cpus: '0.10'
+          memory: 100MB
       restart_policy:
         condition: on-failure
         max_attempts: 5
-
+    read_only: true
+    tmpfs:
+      - /tmp
+      - /run

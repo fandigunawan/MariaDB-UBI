@@ -8,8 +8,8 @@ ENV MARIADB_VERSION 10.4.22
 
 # copy dependencies, GPG keys, and scripts
 COPY mariadb-server.rpm mariadb-client.rpm mariadb-common.rpm mariadb-shared.rpm galera.rpm boost.rpm signatures/RPM-GPG-KEY-MariaDB signatures/RPM-GPG-KEY-CentOS-Official /
-COPY scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
-COPY scripts/healthcheck.sh /usr/local/bin/healthcheck.sh
+COPY --chown=27:27 scripts/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
+COPY --chown=27:27 scripts/healthcheck.sh /usr/local/bin/healthcheck.sh
 
 # add our user and group first to make sure their IDs get assigned consistently, regardless of whatever dependencies get added
 # import GPG keys, update, install dependencies, and clean
